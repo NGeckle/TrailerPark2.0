@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import Card from "../components/Card";
 import Wrapper from "../components/Wrapper";
 import CardWrapper from "../components/CardWrapper";
@@ -21,8 +19,6 @@ class Home extends Component {
     modal: false,
     mapModal: false,
     youTubes: [],
-    pageInteger: 1,
-    message: "",
     comment: "",
     modalOpen: false,
   }
@@ -71,6 +67,7 @@ class Home extends Component {
 
   closeMapModal = () => this.setState({ mapModal: false });
 
+  //This function is so the cards re-render when a user deletes a favorite.
   foolish = () => {
     console.log('foolish')
     API.getFavorites(this.props.user.uid)
@@ -111,7 +108,7 @@ class Home extends Component {
           <Iframe src= {video.id.videoId} key={video.id.videoId}/>))}
           </Carousel>
         </Modal>
-        <h2 className="favorite">My Favorites</h2>
+        <h2 className="favorite">WatchList</h2>
                 <div>
                   <Wrapper>
                     <CardWrapper>
@@ -126,8 +123,9 @@ class Home extends Component {
                     </CardWrapper>
                   </Wrapper>
                 </div>
-                <br/><br/><br/><br/><br/>
-        <Grid container spacing={24} style={{ justifyContent: "center" }}>
+
+                {/* <br/><br/><br/><br/><br/> */}
+        {/* <Grid container spacing={24} style={{ justifyContent: "center" }}>
           <Grid item md={4} className="home">
             <Paper elevation={2} rounded="false">
               <h2>List of Movies/Shows You Have Commented On</h2>
@@ -148,7 +146,7 @@ class Home extends Component {
               <br /><br /><br /><br /><br />
             </Paper>
           </Grid>
-        </Grid>
+        </Grid> */}
       </div>
     )
   }
