@@ -46,7 +46,7 @@ class MessageDrawer extends React.Component {
 
   componentDidMount() {
     API.getComments(this.props.id)
-    .then(res => this.setState({comments: res.data}))
+    .then(res => this.setState({comments: res.data}));
   };
 
   submitComment = (id) => {
@@ -54,11 +54,11 @@ class MessageDrawer extends React.Component {
       user: this.props.userName,
       body: this.state.comment,
       movie_id: id
-    }
+    };
     API.saveComment(commentObj);
     let tempComments = this.state.comments;
     tempComments.push(commentObj);
-    this.setState({comments: tempComments})
+    this.setState({comments: tempComments});
   };
 
   onCommentChange = (event) => {
@@ -117,7 +117,6 @@ class MessageDrawer extends React.Component {
             }
           </div>
 
-          
         </Typography>
       </div>
     );
